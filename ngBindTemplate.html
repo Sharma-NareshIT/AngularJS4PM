@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="Scripts/angular.js"></script>
+    </head>
+    <body ng-app>
+        First Name: 
+        <input type="text" ng-model="fName">
+        <br>
+        Last Name:
+        <input type="text" ng-model="lName">
+        <br>
+        <input type="checkbox" ng-model="isAngularStu"> Is Angular Js Student
+        <br>
+        <div>
+        <span ng-bind-template="Hello ! {{fName}} {{lName}} {{(isAngularStu==true)?'Welcome to Angular Js': 'Please Join Angular Js'}}"></span>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="Scripts/angular.js"></script>
+    </head>
+    <body ng-app>
+        <form name="frmLogin">
+            <input ng-model="edit" type="checkbox"> Edit Password
+            <br>
+            Your Password:
+            <input ng-readonly="!edit" type="password" ng-model="txtPwd" name="txtPwd" required>
+            <button ng-disabled="frmLogin.txtPwd.$invalid">Submit</button>
+        </form>
+    </body>
+</html>

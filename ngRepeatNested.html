@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="Scripts/angular.js"></script>
+        <style>
+          dt {
+              font-weight: bold
+          }
+        </style>
+    </head>
+    <body ng-app>
+        <div ng-init="topics=[
+        {
+          Title: 'JavaScript',
+          Description: 'It is client script'
+        },
+        {
+         Title: 'Angular Js',
+         Description: 'It is a framework'
+        }
+                   ]">
+         <dl>
+             <div ng-repeat="topic in topics">
+                <dt>{{topic.Title}}</dt>
+                <dd>{{topic.Description}}</dd>
+             </div>
+         </dl>
+           
+        </div>
+        <div ng-init="shopping=[{Category:'Electronics', Products:['TV','Mobile']},{Category:'Shoes', Products:['Nike Casuals','Lee Cooper Boot']}]">
+             <h2>Shopping Categories</h2>
+             <div ng-repeat="item in shopping">
+                <details>
+                    <summary>{{item.Category}}</summary>
+                    <ul>
+                      <li ng-repeat="product in item.Products">
+                          {{product}}
+                      </li>  
+                    </ul>
+                </details>
+             </div>
+        </div>
+    </body>
+</html>

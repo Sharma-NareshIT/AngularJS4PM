@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+        <script src="Scripts/angular.js"></script>
+        <script>
+           var app = angular.module("DemoModule",[]);
+           app.controller("HomeController", function($scope){
+             $scope.title= "Product Details";
+             $scope.product = {
+                 Id:1,
+                 Name: "Samsung TV",
+                 Price: 43200.44,
+                 Photo: "Images/tv.jpg"
+             };
+           })
+        </script>
+    </head>
+    <body ng-app="DemoModule" ng-controller="HomeController">
+        <div class="container">
+            <h2>{{title}}</h2>
+            <div class="card">
+             <div class="card-header bg-secondary text-white">
+                <h2>{{product.Name}}</h2>
+             </div>
+             <div class="card-body">
+                <img height="200" width="300" class="img-thumbnail" src="{{product.Photo}}">
+             </div>
+             <div class="card-footer bg-primary text-white">
+               <h2> {{product.Price}} </h2>
+             </div>
+            </div>
+        </div>
+    </body>
+</html>

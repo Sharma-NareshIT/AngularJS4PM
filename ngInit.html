@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+        <script src="Scripts/angular.js"></script>
+    </head>
+    <body ng-app>
+         <div class="container">
+            <div class="card">
+                <div class="card-header">
+                    <h2>Range Rower</h2>
+                </div>
+                <div class="card-body">
+                    <img width="200" height="200" src="Cars/3.jpg" class="img-thumbnail">
+                </div>
+                <div ng-init="likes=0" class="card-footer">
+                     <a href="#">
+                     <img ng-click="likes=likes+1" height="50" width="50" src="Images/like.jpg">
+                     </a>
+                     <button ng-click="likes=0" class="btn btn-primary">Reset Likes</button>
+                     {{likes}} Like(s)
+                </div>
+            </div>
+         </div>
+    </body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="Scripts/angular.js"></script>
+        <script src="modules/DemoModule.js"></script>
+        <script src="controllers/HomeController.js"></script>
+        <style>
+         dt{ 
+             font-weight: bold;
+         }
+        </style>
+    </head>
+    <body ng-app="DemoModule" ng-controller="HomeController">
+       <h2>{{title}}</h2>
+       <dl>
+           <dt>Product Id</dt>
+           <dd>{{product.Id}}</dd>
+           <dt>Name</dt>
+           <dd>{{product.Name}}</dd>
+           <dt>Price</dt>
+           <dd>{{product.Price}}</dd>
+           <dt>Quantity</dt>
+           <dd>{{product.Qty}}</dd>
+           <dt>Total Amount</dt>
+           <dd>{{Total()}}</dd>
+       </dl>
+    </body>
+</html>

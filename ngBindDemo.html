@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="Scripts/angular.js"></script>
+        <script src="Scripts/angular-sanitize.js"></script>
+        <script>
+          var app= angular.module("DemoApp",['ngSanitize']);
+        </script>
+    </head>
+    <body ng-app="DemoApp">
+        Your Comments: [You can componse in HTML]
+        <br>
+        <textarea ng-model="comments" rows="4" cols=40"></textarea>
+        <br>
+        <ul>
+            <li ng-bind-html="comments"></li>
+        </ul>
+    </body>
+</html>

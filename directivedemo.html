@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="Scripts/angular.js"></script>
+        <script>
+         var app=angular.module("DemoApp",[]);
+         
+        </script>
+    </head>
+    <body ng-app>
+        Name : <input type="text" ng-model="uname">
+        <br>
+        Hello ! <span ng-bind="uname"></span>
+        <br>
+        Hello ! <span ng_bind="uname"></span>
+        <br>
+        Hello ! <span ng:bind="uname"></span>
+        <br>
+        Hello ! <span x-ng-bind="uname"></span>
+        <br>
+        Hello ! <span data-ng-bind="uname"></span>
+    </body>
+</html>

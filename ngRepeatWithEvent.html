@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+        <script src="Scripts/angular.js"></script>
+        <script>
+            var app= angular.module("DemoModule",[]);
+            app.controller("HomeController",function($scope){
+                $scope.cars = [
+                    {
+                        CarName: "Audi-Q7",
+                        Photo: "Cars/1.jpg",
+                        Likes: 0,
+                        Dislikes: 0
+                    },
+                    {
+                        CarName: "Range Rower",
+                        Photo: "Cars/3.jpg",
+                        Likes:0,
+                        Dislikes:0
+                    }
+                ];
+                $scope.LikesCounter = function(car){
+                    car.Likes++;
+                }
+                $scope.DislikesCounter= function(car){
+                    car.Dislikes++;
+                }
+                $scope.favorites= [];
+                $scope.AddToFavorite = function(car){
+                    $scope.favorites.push(car);
+                }
+            })  
+        </script>
+    </head>
+    <body ng-app="DemoModule" ng-controller="HomeController">
+        <div class="container">
+            <h2 class="text-center">Cars Gallery</h2>
+           
+            <div class="row card-deck">
+                <div class="card" ng-repeat="car in cars">
+                    <div class="card-header">
+                        <h3>{{car.CarName}}</h3>
+                    </div>
+                    <div class="card-body">
+                        <img class="img-thumbnail" src="{{car.Photo}}" width="200" height="200">
+                    </div>
+                    <div class="card-footer">
+                        <div  class="text-center">
+                            [{{car.Likes}}]
+                            <button ng-click="LikesCounter(car)" class="btn btn-success">Like</button>
+                            [{{car.Dislikes}}]
+                            <button ng-click="DislikesCounter(car)" class="btn btn-danger">DisLike</button>
+                        </div>
+                        <br>
+                        <div>
+                            <button ng-click="AddToFavorite(car)" class="btn btn-primary">Add to Favorite</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <h2>Favorite Cars</h2>
+                <table class="table table-hover">
+                    <thead>
+                        <th>Car Name</th>
+                        <th>Preview</th>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="item in favorites">
+                            <td>{{item.CarName}}</td>
+                            <td>
+                                <img src="{{item.Photo}}" class="img-rounded" width="50" height="50"
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </body>
+</html>
