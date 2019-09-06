@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+        <script src="../node_modules/angular/angular.js"></script>
+        <script>
+            var app= angular.module("MeanApp",[]);
+            app.controller("RegisterController", function($scope, $http){
+                $scope.RegisterClick = function(user){
+                   $http.post("http://127.0.0.1:8080/registerUser",user)
+                   alert("Registered");
+                   location.href="success.html";
+                }
+            })
+        </script>
+    </head>
+    <body ng-app="MeanApp" ng-controller="RegisterController">
+        <div class="container">
+            <h2>Register User</h2>
+            <div class="form-group">
+                <a href="Login.html">Member Login</a>
+            </div>
+            <form method="POST" name="frmRegister" novalidate ng-submit="RegisterClick(user)">
+            <div class="form-group">
+                <label>User Name</label>
+                <div>
+                    <input type="text" name="UserName" ng-model="user.UserName" required class="form-control" />
+                    <span ng-if="frmRegister.UserName.$touched && frmRegister.UserName.$error.required" class="text-danger">User Name Required</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                <div>
+                    <input type="password" name="Password" ng-model="user.Password" pattern="(?=.*[A-Z])\w{4,15}"  class="form-control">
+                    <span class="text-danger" ng-if="frmRegister.Password.$touched && frmRegister.Password.$error.pattern">Password 4 to 15 chars with 1 Uppercase Letter</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Email</label>
+                <div>
+                    <input type="email" name="Email" ng-model="user.Email" class="form-control">
+                    <span class="text-danger" ng-if="frmRegister.Email.$error.email">Invalid Email</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Mobile</label>
+                <div>
+                    <input type="text" name="Mobile" ng-model="user.Mobile" class="form-control" pattern="\+91[0-9]{10}" >
+                    <span class="text-danger" ng-if="frmRegister.Mobile.$error.pattern">Invalid Mobile</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary btn-block">Register</button>
+            </div>
+            </form>
+        </div>
+    </body>
+</html>
